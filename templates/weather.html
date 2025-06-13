@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+    <h1>Weather Info</h1>
+    {% if weather %}
+    <img src="http://openweathermap.org/img/wn/{{ weather_icon }}@2x.png" alt="Weather Icon">
+        <p>City: {{ weather.city }}</p>
+        <p>Longitude: {{ weather.longitude }}</p>
+        <p>Latitude: {{ weather.latitude }}</p>
+        <p>Weather: {{ weather.description }}</p>
+        <p>Temperature: {{ weather.temperature }}°C</p>
+        <p>Feels Like: {{ weather.feels_like }}°C</p>
+        <p>Wind Speed: {{ weather.wind_speed }} m/s</p>
+        <p>Humidity: {{ weather.humidity }}%</p>
+    {% else %}
+        <p>City not found</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
